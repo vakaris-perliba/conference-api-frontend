@@ -12,12 +12,12 @@
         "@schematics/angular:component": {
           "standalone": false,
           "type": "component",
-          "addTypeToClassName": false
+          "addTypeToClassName": true
         },
         "@schematics/angular:directive": {
           "standalone": false,
           "type": "directive",
-          "addTypeToClassName": false
+          "addTypeToClassName": true
         },
         "@schematics/angular:pipe": {
           "standalone": false,
@@ -25,7 +25,7 @@
         },
         "@schematics/angular:service": {
           "type": "service",
-          "addTypeToClassName": false
+          "addTypeToClassName": true
         },
         "@schematics/angular:guard": {
           "typeSeparator": "."
@@ -76,7 +76,13 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
