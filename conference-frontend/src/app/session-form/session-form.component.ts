@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CreateSessionRequest} from "../models/session.model";
+import { CreateSessionRequest } from '../models/api/create-session-request.model';
 
 @Component({
   selector: 'app-session-form',
