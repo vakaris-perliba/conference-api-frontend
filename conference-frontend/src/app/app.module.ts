@@ -12,9 +12,18 @@ import { SessionFormComponent } from './session-form/session-form.component';
 import { FormsModule } from '@angular/forms';
 import { ConferencePageComponent } from './conference-page/conference-page.component';
 import { SessionListComponent } from './session-list/session-list.component';
+import { SessionCardComponent } from './session-card/session-card.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
-  declarations: [AppComponent, SessionFormComponent, ConferencePageComponent, SessionListComponent],
+  declarations: [
+    AppComponent,
+    SessionFormComponent,
+    ConferencePageComponent,
+    SessionListComponent,
+    SessionCardComponent,
+    HighlightDirective,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [
     provideBrowserGlobalErrorListeners(),

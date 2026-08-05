@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CreateSessionRequest } from '../models/api/create-session-request.model';
 
 @Component({
@@ -9,9 +9,10 @@ import { CreateSessionRequest } from '../models/api/create-session-request.model
 })
 export class SessionFormComponent {
   model: CreateSessionRequest = { title: '' };
-  submitted = false;
 
-  onSubmit() {
-    this.submitted = true;
+  @Output() saved = new EventEmitter<CreateSessionRequest>();
+
+  onSubmit(): void {
+    this.saved.emit({...this.model});
   }
 }

@@ -1,2 +1,7 @@
-<app-session-form></app-session-form>
-<app-session-list [sessions]="sessions"></app-session-list>
+<app-session-form
+  (saved)="onSessionSaved($event)">
+</app-session-form>
+
+<app-session-list
+  [sessions]="sessions">
+</app-session-list>

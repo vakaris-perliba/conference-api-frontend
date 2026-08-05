@@ -4,7 +4,7 @@
 
   @if (title.invalid && title.touched)
   {
-    <p>Title requared</p>
+    <p>Title required</p>
   }
 
   <label for="abstract">Description</label>
@@ -12,10 +12,3 @@
 
   <button type="submit" [disabled]="sessionForm.invalid">Save</button>
 </form>
-
-@if (submitted)
-{
-  <h3>Form data</h3>
-  <p>Title: {{ model.title }}</p>
-  <p>Description: {{ model.abstract || '(Empty)' }}</p>
-}

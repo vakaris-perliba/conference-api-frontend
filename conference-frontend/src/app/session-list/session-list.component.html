@@ -1,1 +1,13 @@
-<p>session length: {{sessions.length}}</p>
+@if (sessions.length > 0)
+{
+  <section>
+    @for (session of sessions; track session.id)
+    {
+      <app-session-card [session]="session" />
+    }
+  </section>
+}
+@else
+{
+  <p>No sessions yet.</p>
+}

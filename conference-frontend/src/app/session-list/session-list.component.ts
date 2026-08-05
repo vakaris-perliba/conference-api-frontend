@@ -1,5 +1,6 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SessionResponse } from '../models/api/session-response.model';
+
 @Component({
   selector: 'app-session-list',
   standalone: false,
@@ -8,5 +9,4 @@ import { SessionResponse } from '../models/api/session-response.model';
 })
 export class SessionListComponent {
   @Input() sessions: SessionResponse[] = [];
-
 }

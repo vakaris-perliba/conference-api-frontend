@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { SessionFormComponent } from './session-form.component';
 
@@ -8,6 +9,7 @@ describe('SessionForm', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [SessionFormComponent],
     }).compileComponents();
 

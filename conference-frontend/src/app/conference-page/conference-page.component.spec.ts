@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConferencePageComponent } from './conference-page.component';
+import { AppModule } from '../app.module';
 
 describe('ConferencePageComponent', () => {
   let component: ConferencePageComponent;
@@ -8,7 +9,7 @@ describe('ConferencePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ConferencePageComponent],
+      imports: [AppModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ConferencePageComponent);
