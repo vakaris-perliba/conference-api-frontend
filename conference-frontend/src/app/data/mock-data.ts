@@ -2,9 +2,6 @@ import { SessionResponse } from '../models/api/session-response.model';
 import { Track } from '../models/domain/track.model';
 import { Speaker } from '../models/domain/speaker.model';
 
-// Netikri duomenys 5.2 uzduociai. Formos ir pavadinimai atitinka
-// backend'o SeedData.cs, kad veliau perejimas prie tikro API butu lengvas.
-
 export const MOCK_TRACKS: Track[] = [
   { id: 1, name: 'Backend Development' },
   { id: 2, name: 'Frontend Development' },

@@ -1,6 +1,7 @@
 <form #sessionForm="ngForm" (ngSubmit)="onSubmit()">
+
   <label for="title">Session title</label>
-  <input id="title" name="title" required [(ngModel)]="model.title" #title="ngModel"/>
+  <input id="title" name="title" required [(ngModel)]="draft().title" (ngModelChange)="onTitleChange($event)" #title="ngModel"/>
 
   @if (title.invalid && title.touched)
   {
@@ -8,7 +9,7 @@
   }
 
   <label for="abstract">Description</label>
-  <textarea id="abstract" name="abstract" [(ngModel)]="model.abstract"></textarea>
+  <textarea id="abstract" name="abstract" [(ngModel)]="draft().abstract" (ngModelChange)="onAbstractChange($event)"></textarea>
 
   <button type="submit" [disabled]="sessionForm.invalid">Save</button>
 </form>

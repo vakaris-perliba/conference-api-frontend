@@ -1,7 +1,9 @@
+<p>Form status: {{ state.formStatus() }}</p>
+
 <app-session-form
   (saved)="onSessionSaved($event)">
 </app-session-form>
 
 <app-session-list
-  [sessions]="sessions">
+  [sessions]="(sessions$ | async) ?? []">
 </app-session-list>

@@ -14,6 +14,7 @@ import { ConferencePageComponent } from './conference-page/conference-page.compo
 import { SessionListComponent } from './session-list/session-list.component';
 import { SessionCardComponent } from './session-card/session-card.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { DurationPipe } from './pipes/duration.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     SessionListComponent,
     SessionCardComponent,
     HighlightDirective,
+    DurationPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [
