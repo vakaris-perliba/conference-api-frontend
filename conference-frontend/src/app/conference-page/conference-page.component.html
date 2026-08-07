@@ -1,9 +1,19 @@
-<p>Form status: {{ state.formStatus() }}</p>
+@if (state.submitStatus() === 'success') {
+  <p>Session created ✅</p>
+}
+@if (state.submitStatus() === 'error')
+{
+  <p class="error">Something went wrong. Please try again.</p>
+}
 
 <app-session-form
   (saved)="onSessionSaved($event)">
 </app-session-form>
 
-<app-session-list
-  [sessions]="(sessions$ | async) ?? []">
-</app-session-list>
+@if (listState$ | async; as list) {
+  @switch (list.status) {
+    @case ('loading') { <p>Loading sessions…</p> }
+    @case ('error') { <p class="error">{{ list.error }}</p> }
+    @case ('loaded') { <app-session-list [sessions]="list.sessions" /> }
+  }
+}

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Output, effect, inject } from '@angular/core';
 import { CreateSessionRequest } from '../models/api/create-session-request.model';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ConferenceStateService } from '../service/conference-state.service';
 
 @Component({
@@ -9,22 +10,29 @@ import { ConferenceStateService } from '../service/conference-state.service';
   styleUrl: './session-form.component.css',
 })
 export class SessionFormComponent {
-  private readonly state = inject(ConferenceStateService);
+  private readonly formBuilder = inject(FormBuilder);
 
-  readonly draft = this.state.draft;
+  readonly state = inject(ConferenceStateService);
+  constructor(){
+    effect(() => {
+      if(this.state.submitStatus() === 'success')
+      {
+        this.form.reset();
+      }
+    })
+  }
+
+  readonly form = this.formBuilder.nonNullable.group(
+    {
+      title: ['', Validators.required],
+      abstract: [''],
+    }
+  );
 
   @Output() saved = new EventEmitter<CreateSessionRequest>();
 
-  onTitleChange(value: string): void{
-    this.state.updateDraft({ title: value });
-  }
-
-  onAbstractChange(value: string): void{
-    this.state.updateDraft({ abstract: value });
-  }
-
   onSubmit(): void {
-    this.saved.emit({...this.state.draft()});
-    this.state.clearDraft();
+    if (this.form.invalid) return;
+    this.saved.emit({...this.form.getRawValue()});
   }
 }
