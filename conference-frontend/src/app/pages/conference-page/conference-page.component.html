@@ -1,0 +1,9 @@
+<a routerLink="/conferences/new">Create new conference</a>
+
+@if (listState$ | async; as list) {
+  @switch (list.status) {
+    @case ('loading') { <p>Loading sessions…</p> }
+    @case ('error') { <p class="error">{{ list.error }}</p> }
+    @case ('loaded') { <app-session-list [sessions]="list.sessions"/> }
+  }
+}

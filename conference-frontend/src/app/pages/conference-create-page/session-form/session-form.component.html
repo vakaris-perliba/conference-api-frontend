@@ -10,5 +10,15 @@
   <label for="abstract">Description</label>
   <textarea id="abstract" formControlName="abstract"></textarea>
 
+  <label for="startTime">Start time</label>
+  <input id="startTime" type="time" formControlName="startTime" />
+
+  <label for="endTime">End time</label>
+  <input id="endTime" type="time" formControlName="endTime" />
+
+  @if (form.errors?.['endBeforeStart']) {
+    <p>End time must be after start time</p>
+  }
+
   <button type="submit" [disabled]="form.invalid || state.submitStatus() === 'saving' ">Save</button>
 </form>

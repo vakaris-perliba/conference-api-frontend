@@ -1,0 +1,11 @@
+@if (state.submitStatus() === 'success') {
+  <p>Session created ✅</p>
+}
+@if (state.submitStatus() === 'error')
+{
+  <p class="error">Something went wrong. Please try again.</p>
+}
+
+<app-session-form
+  (saved)="onSessionSaved($event)">
+</app-session-form>

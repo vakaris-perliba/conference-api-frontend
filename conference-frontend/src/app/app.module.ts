@@ -7,16 +7,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SessionFormComponent } from './session-form/session-form.component';
-
+import { SessionFormComponent } from './pages/conference-create-page/session-form/session-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ConferencePageComponent } from './conference-page/conference-page.component';
-import { SessionListComponent } from './session-list/session-list.component';
-import { SessionCardComponent } from './session-card/session-card.component';
+
+import { ConferencePageComponent } from './pages/conference-page/conference-page.component';
+import { ConferenceCreatePageComponent } from './pages/conference-create-page/conference-create-page.component';
+import { ConferenceDetailPageComponent } from './pages/conference-detail-page/conference-detail-page.component';
+
+import { SessionListComponent } from './pages/conference-page/session-list/session-list.component';
+import { SessionCardComponent } from './pages/conference-detail-page/session-card/session-card.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { DurationPipe } from './pipes/duration.pipe';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { errorInterceptor } from './interceptors/error.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { errorInterceptor } from './interceptors/error.interceptor';
     SessionListComponent,
     SessionCardComponent,
     HighlightDirective,
-    DurationPipe
+    DurationPipe,
+    ConferenceCreatePageComponent,
+    ConferenceDetailPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [
@@ -36,4 +42,6 @@ import { errorInterceptor } from './interceptors/error.interceptor';
   ],
   bootstrap: [AppComponent],
 })
+
+
 export class AppModule {}

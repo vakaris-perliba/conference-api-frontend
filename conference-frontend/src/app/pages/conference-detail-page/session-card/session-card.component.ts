@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SessionResponse } from '../models/api/session-response.model';
+import { SessionResponse } from '../../../models/api/session-response.model';
 
 @Component({
   selector: 'app-session-card',

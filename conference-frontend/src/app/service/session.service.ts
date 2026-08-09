@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ApiService } from './api.service';
 import { ConferenceStateService } from './conference-state.service';
 import { SessionListState } from '../models/ui/session-list-state.model';
+import { SessionResponse } from '../models/api/session-response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -39,5 +40,9 @@ export class SessionService {
         },
         error: () => this.state.setSubmitStatus('error'),
     });
+  }
+
+  getSessionById(id: number): Observable<SessionResponse> {
+    return this.api.getSessionById(id);
   }
 }
