@@ -1,15 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { SessionFormComponent } from './session-form/session-form.component';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterModule.forRoot([])
+        FormsModule
       ],
       declarations: [
-        AppComponent
+        AppComponent, SessionFormComponent
       ],
     }).compileComponents();
   });
@@ -20,10 +21,10 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should render the session form', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, conference-frontend');
+    expect(compiled.querySelector('form')).toBeTruthy();
   });
 });
