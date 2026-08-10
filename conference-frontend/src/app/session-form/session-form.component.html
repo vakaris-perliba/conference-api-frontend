@@ -1,9 +1,8 @@
 <form #sessionForm="ngForm" (ngSubmit)="onSubmit()">
   <label for="title">Session title</label>
-  <input id="title" name="title" required [(ngModel)]="model.title" #title="ngModel"/>
+  <input id="title" name="title" required [(ngModel)]="model.title" #title="ngModel" />
 
-  @if (title.invalid && title.touched)
-  {
+  @if (title.invalid && title.touched) {
     <p>Title required</p>
   }
 
