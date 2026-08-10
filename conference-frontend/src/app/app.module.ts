@@ -21,7 +21,6 @@ import { DurationPipe } from './pipes/duration.pipe';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { errorInterceptor } from './interceptors/error.interceptor';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,16 +31,14 @@ import { errorInterceptor } from './interceptors/error.interceptor';
     HighlightDirective,
     DurationPipe,
     ConferenceCreatePageComponent,
-    ConferenceDetailPageComponent
+    ConferenceDetailPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withInterceptors([errorInterceptor]))
+    provideHttpClient(withInterceptors([errorInterceptor])),
   ],
   bootstrap: [AppComponent],
 })
-
-
 export class AppModule {}

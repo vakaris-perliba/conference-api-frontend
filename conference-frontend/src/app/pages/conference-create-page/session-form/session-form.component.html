@@ -2,8 +2,7 @@
   <label for="title">Session title</label>
   <input id="title" formControlName="title" />
 
-  @if (form.controls.title.invalid && form.controls.title.touched)
-  {
+  @if (form.controls.title.invalid && form.controls.title.touched) {
     <p>Title required</p>
   }
 
@@ -20,5 +19,5 @@
     <p>End time must be after start time</p>
   }
 
-  <button type="submit" [disabled]="form.invalid || state.submitStatus() === 'saving' ">Save</button>
+  <button type="submit" [disabled]="form.invalid || state.submitStatus() === 'saving'">Save</button>
 </form>

@@ -1,6 +1,6 @@
-export interface Speaker{
-  id : number;
+export interface Speaker {
+  id: number;
   name: string;
-  bio? : string;
-  webSite? : string;
+  bio?: string;
+  webSite?: string;
 }

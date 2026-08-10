@@ -24,21 +24,20 @@ export class SessionService {
     });
   }
 
-  addSession(request: CreateSessionRequest): void
-  {
+  addSession(request: CreateSessionRequest): void {
     this.state.setSubmitStatus('saving');
-    this.api.createSession(request).subscribe(
-      {
-        next: (created) =>
-        {
-          const current = this.listStateSubject.value;
-          if (current.status === 'loaded')
-            {
-            this.listStateSubject.next({ status: 'loaded', sessions: [...current.sessions, created] });
-          }
-          this.state.setSubmitStatus('success');
-        },
-        error: () => this.state.setSubmitStatus('error'),
+    this.api.createSession(request).subscribe({
+      next: (created) => {
+        const current = this.listStateSubject.value;
+        if (current.status === 'loaded') {
+          this.listStateSubject.next({
+            status: 'loaded',
+            sessions: [...current.sessions, created],
+          });
+        }
+        this.state.setSubmitStatus('success');
+      },
+      error: () => this.state.setSubmitStatus('error'),
     });
   }
 

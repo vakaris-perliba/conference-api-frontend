@@ -7,7 +7,6 @@ import { SessionService } from '../../service/session.service';
   templateUrl: './conference-page.component.html',
   styleUrl: './conference-page.component.css',
 })
-
 export class ConferencePageComponent implements OnInit {
   private readonly sessionService = inject(SessionService);
 
