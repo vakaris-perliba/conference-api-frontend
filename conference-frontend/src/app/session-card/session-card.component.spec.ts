@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SessionCardComponent } from './session-card.component';
 import { MOCK_SESSIONS } from '../data/mock-data';
+import { DurationPipe } from '../pipes/duration.pipe';
 
 describe('SessionCardComponent', () => {
   let component: SessionCardComponent;
@@ -9,7 +10,7 @@ describe('SessionCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SessionCardComponent],
+      declarations: [SessionCardComponent, DurationPipe],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SessionCardComponent);
