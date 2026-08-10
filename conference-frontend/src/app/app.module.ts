@@ -11,7 +11,6 @@ import { SessionFormComponent } from './session-form/session-form.component';
 
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [AppComponent, SessionFormComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],

@@ -1,9 +1,8 @@
 <form #sessionForm="ngForm" (ngSubmit)="onSubmit()">
   <label for="title">Session Title</label>
-  <input id="title" name="title" required [(ngModel)]="model.title" #title="ngModel"/>
+  <input id="title" name="title" required [(ngModel)]="model.title" #title="ngModel" />
 
-  @if (title.invalid && title.touched)
-  {
+  @if (title.invalid && title.touched) {
     <p>Title requared</p>
   }
 
@@ -13,8 +12,7 @@
   <button type="submit" [disabled]="sessionForm.invalid">Save</button>
 </form>
 
-@if (submitted)
-{
+@if (submitted) {
   <h3>Form data</h3>
   <p>Title: {{ model.title }}</p>
   <p>Description: {{ model.abstract || '(Empty)' }}</p>

@@ -6,12 +6,8 @@ import { SessionFormComponent } from './session-form/session-form.component';
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        FormsModule
-      ],
-      declarations: [
-        AppComponent, SessionFormComponent
-      ],
+      imports: [FormsModule],
+      declarations: [AppComponent, SessionFormComponent],
     }).compileComponents();
   });
 
