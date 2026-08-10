@@ -26,13 +26,13 @@ import { errorInterceptor } from './interceptors/error.interceptor';
     SessionListComponent,
     SessionCardComponent,
     HighlightDirective,
-    DurationPipe
+    DurationPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withInterceptors([errorInterceptor]))
+    provideHttpClient(withInterceptors([errorInterceptor])),
   ],
   bootstrap: [AppComponent],
 })

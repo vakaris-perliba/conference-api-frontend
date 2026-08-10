@@ -10,8 +10,8 @@ export class DurationPipe implements PipeTransform {
     const h = Number(hours);
     const m = Number(minutes);
 
-    if(h === 0) return `${m} min`;
-    if(m === 0) return `${h} h`;
+    if (h === 0) return `${m} min`;
+    if (m === 0) return `${h} h`;
     return `${h} h ${m} min`;
   }
 }

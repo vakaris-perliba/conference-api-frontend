@@ -1,13 +1,9 @@
-@if (sessions.length > 0)
-{
+@if (sessions.length > 0) {
   <section>
-    @for (session of sessions; track session.id)
-    {
+    @for (session of sessions; track session.id) {
       <app-session-card [session]="session" />
     }
   </section>
-}
-@else
-{
+} @else {
   <p>No sessions yet.</p>
 }

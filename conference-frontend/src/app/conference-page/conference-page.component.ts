@@ -9,14 +9,13 @@ import { ConferenceStateService } from '../service/conference-state.service';
   templateUrl: './conference-page.component.html',
   styleUrl: './conference-page.component.css',
 })
-
 export class ConferencePageComponent implements OnInit {
   private readonly sessionService = inject(SessionService);
   readonly state = inject(ConferenceStateService);
 
   readonly listState$ = this.sessionService.listState$;
 
-  onSessionSaved(request: CreateSessionRequest): void{
+  onSessionSaved(request: CreateSessionRequest): void {
     this.sessionService.addSession(request);
   }
 

@@ -9,6 +9,6 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
           ? 'Cannot reach the server. Is the backend running?'
           : `Server error (${error.status}).`;
       return throwError(() => new Error(message));
-    })
+    }),
   );
 };

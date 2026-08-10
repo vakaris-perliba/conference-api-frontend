@@ -13,26 +13,23 @@ export class SessionFormComponent {
   private readonly formBuilder = inject(FormBuilder);
 
   readonly state = inject(ConferenceStateService);
-  constructor(){
+  constructor() {
     effect(() => {
-      if(this.state.submitStatus() === 'success')
-      {
+      if (this.state.submitStatus() === 'success') {
         this.form.reset();
       }
-    })
+    });
   }
 
-  readonly form = this.formBuilder.nonNullable.group(
-    {
-      title: ['', Validators.required],
-      abstract: [''],
-    }
-  );
+  readonly form = this.formBuilder.nonNullable.group({
+    title: ['', Validators.required],
+    abstract: [''],
+  });
 
   @Output() saved = new EventEmitter<CreateSessionRequest>();
 
   onSubmit(): void {
     if (this.form.invalid) return;
-    this.saved.emit({...this.form.getRawValue()});
+    this.saved.emit({ ...this.form.getRawValue() });
   }
 }

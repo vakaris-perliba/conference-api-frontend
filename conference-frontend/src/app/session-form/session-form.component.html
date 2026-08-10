@@ -2,13 +2,12 @@
   <label for="title">Session title</label>
   <input id="title" formControlName="title" />
 
-  @if (form.controls.title.invalid && form.controls.title.touched)
-  {
+  @if (form.controls.title.invalid && form.controls.title.touched) {
     <p>Title required</p>
   }
 
   <label for="abstract">Description</label>
   <textarea id="abstract" formControlName="abstract"></textarea>
 
-  <button type="submit" [disabled]="form.invalid || state.submitStatus() === 'saving' ">Save</button>
+  <button type="submit" [disabled]="form.invalid || state.submitStatus() === 'saving'">Save</button>
 </form>
