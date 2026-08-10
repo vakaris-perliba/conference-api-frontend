@@ -1,4 +1,3 @@
-// Ka grazina API skaitant sesija.
 export interface Session {
   id: number;
   title: string;
