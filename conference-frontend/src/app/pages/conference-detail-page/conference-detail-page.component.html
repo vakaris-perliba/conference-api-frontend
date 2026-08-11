@@ -1,0 +1,9 @@
+<a routerLink="/conferences">← Back to conferences</a>
+
+@if (state(); as s) {
+  @switch (s.status) {
+    @case ('loading') { <p>Loading conference…</p> }
+    @case ('error') { <p class="error">{{ s.error }}</p> }
+    @case ('loaded') { <app-session-card [session]="s.session" /> }
+  }
+}
