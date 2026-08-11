@@ -1,13 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { SessionFormComponent } from './session-form/session-form.component';
+import { AppModule } from './app.module';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormsModule],
-      declarations: [AppComponent, SessionFormComponent],
+      imports: [AppModule],
     }).compileComponents();
   });
 
@@ -17,10 +15,10 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render the session form', () => {
+  it('should render the router outlet', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('form')).toBeTruthy();
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 });

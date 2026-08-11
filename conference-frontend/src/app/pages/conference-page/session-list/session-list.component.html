@@ -1,0 +1,16 @@
+@if (sessions.length > 0)
+{
+<section>
+  @for (session of sessions; track session.id)
+  {
+    <a [routerLink]="['/conferences', session.id]" class="list-item">
+      <h3>{{ session.title }}</h3>
+      <p>{{ session.abstract }}</p>
+    </a>
+  }
+</section>
+}
+@else
+{
+<p>No sessions yet.</p>
+}

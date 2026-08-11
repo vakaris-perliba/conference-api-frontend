@@ -1,0 +1,29 @@
+<article appHighlight>
+  <h3>{{ session.title }}</h3>
+
+  @if (session.abstract) {
+    <p>{{ session.abstract }}</p>
+  }
+
+  <p>Duration: {{ session.duration | duration }}</p>
+  <p>Track: {{ session.track.name }}</p>
+
+  <h4>Speakers</h4>
+
+  <ng-template #speakerTemplate let-speaker>
+    <li>{{ speaker.name }}</li>
+  </ng-template>
+
+  @if (session.speakers.length === 0) {
+    <p>No speakers</p>
+  } @else {
+    <ul>
+      @for (speaker of session.speakers; track speaker.id) {
+        <ng-container
+          [ngTemplateOutlet]="speakerTemplate"
+          [ngTemplateOutletContext]="{ $implicit: speaker }"
+        />
+      }
+    </ul>
+  }
+</article>
